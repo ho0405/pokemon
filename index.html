@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="card"></div>
+    <div class="overlay"></div>
+</div>
+
+<script>
+    var container = document.querySelector('.container')
+    var overlay = document.querySelector('.overlay')
+    container.addEventListener('mousemove', function(e){
+        var x = e.offsetX
+        var y = e.offsetY
+        var rotateY = -1/5 * x + 20
+        var rotateX = 4/30 * y - 20
+
+
+        overlay.style = `background-position: ${x/5 +y/5}`
+
+
+        container.style  = `transform : perrrspective(350px) rotateY(${rotateX}deg 
+        rotateY(${rotateY}deg)`
+    })
+
+    container.addEventListener('mouseout',
+function(){
+    overlay.style = 'fliter : opacity(0)'
+    container.style = 'transform : perspective (350px) rotateY(0deg) rotateX(0deg)'
+})
+
+</script>
+
+<style>
+    .container {
+        width: 220px; height: 310px; transition: all 0.1s;
+    }
+    .overlay {
+        position: absolute;
+        width: 220px;
+        height: 310px;
+        background: linear-gradient(105deg,
+        transparent 40%,
+        rgba(255, 219, 112, 0.8) 45%,
+        rgba(132, 550, 255, 0.6) 50%,
+        transparent 54%
+        );
+        filter: brightness(1.1) opacity(0.8);
+        mix-blend-mode: color-dodge;
+        background-size: 150% 150%;
+        background-position: 100%;
+        transition: all 0.1s;
+        background:radial-gradient(10px);
+
+    }
+    .card{
+        width: 220px; height: 310px;
+        background-image: url(pikachu.jpg);
+        background-size: cover;
+    }
+</style>
